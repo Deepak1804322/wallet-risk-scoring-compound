@@ -1,18 +1,18 @@
 # Wallet Risk Scoring - Compound V2
 
-## 🧾 Data Collection
+##  Data Collection
 We used the Expand.Network API to query Compound V2 user positions. For each wallet, we fetched:
 - Supplied amount (USD)
 - Borrowed amount (USD)
 - Health Factor
 
-## 🧪 Feature Selection
+##  Feature Selection
 We engineered the following risk features:
 - `net_worth`: Supplied - Borrowed
 - `borrow_to_supply_ratio`: Higher values imply higher risk
 - `health_factor`: Lower than 1 means liquidation risk
 
-## 📊 Scoring Method
+##  Scoring Method
 Each wallet was scored using a weighted average of normalized features:
 
 ```
@@ -25,6 +25,6 @@ score = 1000 * (
 
 Scores range from 0 (high risk) to 1000 (low risk).
 
-## 📁 Files
+##  Files
 - `wallet_scorer.py`: Python script for scoring
 - `wallet_scores.csv`: Output CSV with scores
